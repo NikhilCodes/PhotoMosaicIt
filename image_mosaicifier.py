@@ -3,7 +3,7 @@ import numpy as np
 from glob import glob
 from tqdm import tqdm
 
-STRIDE = 10
+STRIDE = 70
 dataset_files = glob('dataset/*')
 image_pool = np.zeros((len(dataset_files), STRIDE, STRIDE, 3))
 avg_colors = np.zeros((len(dataset_files), 3))
@@ -19,8 +19,8 @@ def render(input_image):
     *DIM, _ = input_image.shape
 
     if DIM[0] < 1000 or DIM[1] < 1000:
-        DIM[1] = 1024#*= 10
-        DIM[0] = 720#*= 10
+        DIM[1] *= 10
+        DIM[0] *= 10
 
     DIM[0] -= DIM[0] % STRIDE
     DIM[1] -= DIM[1] % STRIDE

@@ -6,6 +6,7 @@ while True:
     ret, capture = camera.read()
     capture = cv2.resize(capture, (800, 600))
     capture = render(capture)
+    capture = cv2.resize(capture, (1024, 720))
     cv2.imshow("Mosaicinator", capture)
 
     if cv2.waitKey(1) & 0xFF == ord('q'):
